@@ -37,12 +37,18 @@ if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = true;
     $result = $mysqli->query("SELECT * FROM data WHERE id=$id") or die($mysqli->error());
-    if (count($result) == 1) {
-        $row = $result->fetch_array();
+    
+// old version code php 
+//     if (count($result) == 1) {
+//         $row = $result->fetch_array();
+//         $name = $row['name'];
+//         $location = $row['location'];
+ 
+//new php version code//
+    
+ if ($result && $row = $result->fetch_array()){
         $name = $row['name'];
         $location = $row['location'];
-
-
     }
 }
 
